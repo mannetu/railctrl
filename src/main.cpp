@@ -1,27 +1,25 @@
 /*
 Railctrl
 
-
-
 */
 
 #include <iostream>
-#include "IBusinterface.h"
+
 #include "TestBusInterface.h"
+#include "IBusInterface.h"
+#include "BusHandler.h"
 
 int main(int argc, char const *argv[])
 {
   IBusInterface *busInterface = new TestBusInterface::TestBusInterface();
+  BusHandler *busHandler = new BusHandler::BusHandler();
 
-  Busmessage msg;
+  busHandler->setInterface(busInterface);
+  busInterface->setBusHandler(busHandler);
 
-  msg.id = 1000;
-  msg.data[3] = 45;
-  busInterface->sendMsg(msg);
+  BusMessage msg;
 
-  busInterface->receiveMsg(msg);
-
-  busInterface->sendMsg(msg);
+  busHandler->sendMessage(msg);
 
   return 0;
 }

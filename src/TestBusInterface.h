@@ -2,18 +2,18 @@
 #define TESTBUSINTERFACE_H
 
 /*
-Implementation of IBusinterface for Testing
+Implementation of IBusinterface for testing purpose
 */
 
 #include <iostream>
+#include "IBusInterface.h"
 
 
 class TestBusInterface : public IBusInterface
 {
   public:
-  bool receiveMsg(Busmessage &msg) override;
-  bool sendMsg(const Busmessage &msg) override;
-
+  bool receiveMsg(BusMessage &msg) override;
+  bool sendMsg(const BusMessage &msg) override;
 };
 
 

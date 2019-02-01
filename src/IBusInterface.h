@@ -7,9 +7,10 @@ Interface class for low-level bus controllers
 */
 
 #include <cstdint>
-//#include "Bushandler.h"
 
-struct Busmessage
+class BusHandler;
+
+struct BusMessage
 {
   int id = 0;
   int data[8] = {0,0,0,0,0,0,0,0}; // cout type with "+0"
@@ -18,11 +19,12 @@ struct Busmessage
 class IBusInterface
 {
   public:
-  virtual bool receiveMsg(Busmessage &msg) = 0;
-  virtual bool sendMsg(const Busmessage &msg) = 0;
+  virtual bool receiveMsg(BusMessage &msg) = 0;
+  virtual bool sendMsg(const BusMessage &msg) = 0;
   virtual ~IBusInterface() {};
+  void setBusHandler(BusHandler *busHandler) {m_busHandler = busHandler;};
   private:
-  //Bushandler &Bushandler;
+  BusHandler *m_busHandler;
 };
 
 

@@ -3,12 +3,10 @@ Implementation of IBusinterface for Testing
 */
 
 #include <iostream>
-#include "IBusinterface.h"
 #include "TestBusInterface.h"
 
 
-
-bool TestBusInterface::receiveMsg(Busmessage &msg)
+bool TestBusInterface::receiveMsg(BusMessage &msg)
 {
   std::cout << "Input message:\n" << "ID: ? ";
   std::cin >> msg.id;
@@ -21,7 +19,7 @@ bool TestBusInterface::receiveMsg(Busmessage &msg)
   return 0;
 }
 
-bool TestBusInterface::sendMsg(const Busmessage &msg)
+bool TestBusInterface::sendMsg(const BusMessage &msg)
 {
   std::cout << "Send message: Id " << msg.id;
   std::cout << "  Data: " << " ";
