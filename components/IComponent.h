@@ -17,7 +17,7 @@ class IComponent
   bool sendMessage(BusMessage msg) {m_busHandler->sendMessage(msg); return 0;}
 
   virtual bool update(const BusMessage &msg) = 0;
-  void ping(int address) {std::cout << "yup, hier " << address << '\n';}
+  virtual void ping(int address) = 0;
 
   private:
   BusHandler *m_busHandler;

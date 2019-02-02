@@ -12,23 +12,21 @@ void BusHandler::sendMessage(const BusMessage &msg)
 void BusHandler::notifyComponent(const BusMessage &msg)
 {
   int address = int(msg.id);
-  std::cout << "Notifiying component with address: "<< address << '\n';
   auto itr = observer.find(address);
   if (itr != observer.end())
   {
-    std::cout << "found" << '\n';
+    std::cout << "BusHandler: Notifiying component with address: "<< address << '\n';
     (itr->second)->update(msg);
-
   }
   else
   {
-    std::cout << "component not found" << '\n';
+    std::cout << "BusHandler: Component not found" << '\n';
   }
 }
 
 void BusHandler::listComponents()
 {
-  std::cout << "registered Components: \n";
+  std::cout << "BusHandler: Registered Components: \n";
   for (auto itr = observer.begin(); itr != observer.end(); ++itr)
   {
     (itr->second)->ping(itr->first);
