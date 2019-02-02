@@ -1,10 +1,12 @@
 
 #include <iostream>
+#include "IBusInterface.h"
 #include "BusHandler.h"
+#include "IComponent.h"
 
 void BusHandler::sendMessage(const BusMessage &msg)
 {
-  m_interface->sendMsg(msg);
+  m_interface->sendMessage(msg);
 }
 
 void BusHandler::notifyComponent(const BusMessage &msg)

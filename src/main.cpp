@@ -23,14 +23,13 @@ int main(int argc, char const *argv[])
   BusMessage msg;
   busHandler->sendMessage(msg);
 
-  IComponent *turnout = new Turnout::Turnout(3, busInterface);
+  IComponent *turnout = new Turnout::Turnout(3, busHandler);
   busHandler->registerComponent(turnout);
 
-  IComponent *sign = new Sign::Sign(5, busInterface);
+  IComponent *sign = new Sign::Sign(5, busHandler);
   busHandler->registerComponent(sign);
 
   busHandler->notifyComponent(msg);
-
 
   turnout->sendMessage(msg);
 

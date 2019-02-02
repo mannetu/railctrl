@@ -13,7 +13,7 @@ class TestBusInterface : public IBusInterface
 {
   public:
   bool receiveMsg(BusMessage &msg) override;
-  bool sendMsg(const BusMessage &msg) override;
+  bool sendMessage(const BusMessage &msg) override;
 };
 
 
