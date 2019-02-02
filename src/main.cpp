@@ -20,16 +20,14 @@ int main(int argc, char const *argv[])
   busHandler->setInterface(busInterface);
   busInterface->setBusHandler(busHandler);
 
-  BusMessage msg;
-
   IComponent *turnout = new Turnout::Turnout(3, busHandler);
   busHandler->registerComponent(turnout);
-
   IComponent *sign = new Sign::Sign(5, busHandler);
   busHandler->registerComponent(sign);
 
   busHandler->listComponents();
 
+  BusMessage msg;
   busInterface->receiveMessage(msg);
 
   turnout->toggle();
