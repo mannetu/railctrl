@@ -10,23 +10,31 @@ class  IComponent;
 class BusHandler
 {
   public:
-  // Set concrete BusInterface object
+  // Set concrete BusInterface object used by BusHandler
+  // to send messages into physical bus
   void setInterface(IBusInterface *interface) {m_interface = interface;}
+
   // Register component so that it can be notified once message arrives on bus
   void registerComponent(IComponent*);
+
   // Prints out list of registered components
   void listComponents();
 
-  // Send message into physical bus
+  // Sends a message into physical bus
   void sendMessage(const BusMessage &msg);
-  // Called by bus interface when new message arrives on physical bus
+
+  // Sends a message to the BusHandler (e.g. called by IBusInterface
+  // once a new message arrives)
   void update(const BusMessage &msg);
 
   private:
+  // BusInterface controling the physical bus
   IBusInterface *m_interface;
+
+  // Container registering component information as (address, 'ptr to object')
   std::map<int,IComponent*> observer;
 
-  // Notify the component object registered under the address
+  // Notifies the component object registered under the address
   void notifyComponents(const BusMessage &msg);
 };
 

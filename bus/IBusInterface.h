@@ -27,6 +27,8 @@ class IBusInterface
   BusHandler*  m_busHandler;
 
   public:
+  // will be changed to protected once called by concrete Interface
+  // on receiving message
   virtual bool notifyBusHandler(BusMessage &msg) = 0;
 };
 
