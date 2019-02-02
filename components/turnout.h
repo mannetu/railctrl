@@ -8,8 +8,8 @@
 class Turnout : public IComponent
 {
   public:
-  Turnout(int address, IBusInterface *busInterface)
-    : IComponent(address, busInterface) {};
+  Turnout(int address, BusHandler* busHandler)
+    : IComponent(address, busHandler) {};
 
   bool update() override;
 };

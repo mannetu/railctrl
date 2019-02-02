@@ -2,8 +2,10 @@
 #define BUSHANDLER_H
 
 #include <map>
-#include "IBusInterface.h"
-#include "IComponent.h"
+
+struct BusMessage;
+class IBusInterface;
+class IComponent;
 
 class BusHandler
 {

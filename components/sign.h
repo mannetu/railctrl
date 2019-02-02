@@ -8,8 +8,8 @@
 class Sign : public IComponent
 {
   public:
-  Sign(int address, IBusInterface *busInterface)
-    : IComponent(address, busInterface) {};
+  Sign(int address, BusHandler* busHandler)
+    : IComponent(address, busHandler) {};
 
   bool update() override;
 };

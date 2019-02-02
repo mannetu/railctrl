@@ -19,7 +19,7 @@ bool TestBusInterface::receiveMsg(BusMessage &msg)
   return 0;
 }
 
-bool TestBusInterface::sendMsg(const BusMessage &msg)
+bool TestBusInterface::sendMessage(const BusMessage &msg)
 {
   std::cout << "Send message: Id " << msg.id;
   std::cout << "  Data: " << " ";
