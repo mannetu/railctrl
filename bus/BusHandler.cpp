@@ -11,13 +11,18 @@ void BusHandler::sendMessage(const BusMessage &msg)
 
 void BusHandler::notifyComponent(const BusMessage &msg)
 {
-  int address = msg.id;
-  std::cout << msg.id+0 << '\n';
+  int address = int(msg.id);
+  std::cout << "Notifiying component with address: "<< address << '\n';
   auto itr = observer.find(address);
-  if (itr == observer.end()) {
-    std::cout << "not found" << '\n';
-  } else {
+  if (itr != observer.end())
+  {
     std::cout << "found" << '\n';
+    (itr->second)->update(msg);
+
+  }
+  else
+  {
+    std::cout << "component not found" << '\n';
   }
 }
 
