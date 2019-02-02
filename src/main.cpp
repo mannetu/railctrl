@@ -32,8 +32,8 @@ int main(int argc, char const *argv[])
 
   busHandler->listComponents();
 
-  turnout->sendMessage(msg);
-  sign->sendMessage(msg);
+  //turnout->sendMessage(msg);
+  //sign->sendMessage(msg);
 
   return 0;
 }

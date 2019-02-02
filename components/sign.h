@@ -11,10 +11,10 @@ class Sign : public IComponent
   Sign(int address, BusHandler* busHandler)
     : IComponent(address, busHandler) {};
 
-  bool update() override;
+  bool update(const BusMessage &msg) override;
 };
 
-bool Sign::update()
+bool Sign::update(const BusMessage &msg)
 {
   std::cout << "Sign!!" << '\n';
   return 0;
