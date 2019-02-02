@@ -19,18 +19,14 @@ void BusHandler::notifyComponent(const BusMessage &msg)
     (itr->second)->update(msg);
   }
   else
-  {
     std::cout << "BusHandler: Component not found" << '\n';
-  }
 }
 
 void BusHandler::listComponents()
 {
   std::cout << "BusHandler: Registered Components: \n";
   for (auto itr = observer.begin(); itr != observer.end(); ++itr)
-  {
     (itr->second)->ping();
-  }
 }
 
 void BusHandler::registerComponent(IComponent *component)

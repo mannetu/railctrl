@@ -1,7 +1,6 @@
 #ifndef TURNOUT_H
 #define TURNOUT_H
 
-
 #include <iostream>
 #include "IComponent.h"
 
