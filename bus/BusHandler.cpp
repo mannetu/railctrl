@@ -1,6 +1,5 @@
 
 #include <iostream>
-#include <map>
 #include "BusHandler.h"
 
 void BusHandler::sendMessage(const BusMessage &msg)
