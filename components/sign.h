@@ -11,13 +11,20 @@ class Sign : public IComponent
   Sign(int address, BusHandler* busHandler)
     : IComponent(address, busHandler) {};
 
-  bool update() override;
+  bool update(const BusMessage &msg) override;
+  void ping(int address) override;
 };
 
-bool Sign::update()
+bool Sign::update(const BusMessage &msg)
 {
-  std::cout << "Sign!!" << '\n';
+  std::cout << "Sign: Updating with address: " << msg.id+0 << '\n';
+  for (size_t i = 0; i < 8; i++)
+  {
+    std::cout << "Data " << i << " :" << msg.data[i] << '\n';
+  }
   return 0;
 }
+
+void Sign::ping(int address) {std::cout << "Sign mit address: " << address << '\n';}
 
 #endif

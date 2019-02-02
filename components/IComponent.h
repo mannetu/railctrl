@@ -16,7 +16,8 @@ class IComponent
   int getAddress() {return m_address;}
   bool sendMessage(BusMessage msg) {m_busHandler->sendMessage(msg); return 0;}
 
-  virtual bool update() = 0;
+  virtual bool update(const BusMessage &msg) = 0;
+  virtual void ping(int address) = 0;
 
   private:
   BusHandler *m_busHandler;

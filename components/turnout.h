@@ -11,13 +11,20 @@ class Turnout : public IComponent
   Turnout(int address, BusHandler* busHandler)
     : IComponent(address, busHandler) {};
 
-  bool update() override;
+  bool update(const BusMessage &msg) override;
+  void ping(int address) override;
 };
 
-bool Turnout::update()
+bool Turnout::update(const BusMessage &msg)
 {
-  std::cout << "Turnout!!" << '\n';
+  std::cout << "Turnout: Updating with address: " << msg.id+0 << '\n';
+  for (size_t i = 0; i < 8; i++)
+  {
+    std::cout << "Data " << i << " :" << msg.data[i] << '\n';
+  }
   return 0;
 }
+
+void Turnout::ping(int address) {std::cout << "Turnout mit address: " << address << '\n';}
 
 #endif

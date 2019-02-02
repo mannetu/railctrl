@@ -21,7 +21,6 @@ int main(int argc, char const *argv[])
   busInterface->setBusHandler(busHandler);
 
   BusMessage msg;
-  busHandler->sendMessage(msg);
 
   IComponent *turnout = new Turnout::Turnout(3, busHandler);
   busHandler->registerComponent(turnout);
@@ -29,9 +28,12 @@ int main(int argc, char const *argv[])
   IComponent *sign = new Sign::Sign(5, busHandler);
   busHandler->registerComponent(sign);
 
-  busHandler->notifyComponent(msg);
+  busHandler->listComponents();
 
-  turnout->sendMessage(msg);
+  busInterface->receiveMessage(msg);
+
+  //turnout->sendMessage(msg);
+  //sign->sendMessage(msg);
 
   return 0;
 }
