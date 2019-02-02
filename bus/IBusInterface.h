@@ -12,19 +12,24 @@ class BusHandler;
 
 struct BusMessage
 {
-  int id = 0;
+  int id      = 0;
   int data[8] = {0,0,0,0,0,0,0,0}; // cout type with "+0"
 };
 
 class IBusInterface
 {
   public:
-  virtual bool receiveMessage(BusMessage &msg) = 0;
   virtual bool sendMessage(const BusMessage &msg) = 0;
-  virtual ~IBusInterface() {};
-  void setBusHandler(BusHandler *busHandler) {m_busHandler = busHandler;};
+  virtual      ~IBusInterface() {};
+          void setBusHandler(BusHandler *busHandler) {m_busHandler = busHandler;};
+
   protected:
-  BusHandler *m_busHandler;
+  BusHandler*  m_busHandler;
+
+  public:
+  // will be changed to protected once called by concrete Interface
+  // on receiving message
+  virtual bool notifyBusHandler(BusMessage &msg) = 0;
 };
 
 

@@ -12,8 +12,13 @@ Implementation of IBusinterface for testing purpose
 class TestBusInterface : public IBusInterface
 {
   public:
-  bool receiveMessage(BusMessage &msg) override;
+  //bool receiveMessage(BusMessage &msg) override;
   bool sendMessage(const BusMessage &msg) override;
+
+  public:
+  bool notifyBusHandler(BusMessage &msg) override;
+
+
 };
 
 
