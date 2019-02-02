@@ -13,6 +13,7 @@ class Turnout : public IComponent
 
   bool update(const BusMessage &msg) override;
   void ping() override;
+  void toggle() override;
 };
 
 bool Turnout::update(const BusMessage &msg)
@@ -25,6 +26,17 @@ bool Turnout::update(const BusMessage &msg)
   return 0;
 }
 
-void Turnout::ping() {std::cout << "Turnout mit address: " << m_address << '\n';}
+void Turnout::ping()
+{
+  std::cout << "Turnout mit address: " << m_address << '\n';
+}
+
+void Turnout::toggle()
+{
+  BusMessage msg;
+  msg.id = m_address;
+  msg.data[0] = 1000;
+  sendMessage(msg);
+};
 
 #endif

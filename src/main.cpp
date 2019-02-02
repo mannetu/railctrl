@@ -32,8 +32,7 @@ int main(int argc, char const *argv[])
 
   busInterface->receiveMessage(msg);
 
-  //turnout->sendMessage(msg);
-  //sign->sendMessage(msg);
+  turnout->toggle();
 
   return 0;
 }
