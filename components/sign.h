@@ -12,7 +12,7 @@ class Sign : public IComponent
     : IComponent(address, busHandler) {};
 
   bool update(const BusMessage &msg) override;
-  void ping(int address) override;
+  void ping() override;
 };
 
 bool Sign::update(const BusMessage &msg)
@@ -25,6 +25,6 @@ bool Sign::update(const BusMessage &msg)
   return 0;
 }
 
-void Sign::ping(int address) {std::cout << "Sign mit address: " << address << '\n';}
+void Sign::ping() {std::cout << "Sign mit address: " << m_address << '\n';}
 
 #endif
