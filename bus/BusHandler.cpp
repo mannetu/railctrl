@@ -9,7 +9,12 @@ void BusHandler::sendMessage(const BusMessage &msg)
   m_interface->sendMessage(msg);
 }
 
-void BusHandler::notifyComponent(const BusMessage &msg)
+void BusHandler::update(const BusMessage &msg)
+{
+  notifyComponents(msg);
+}
+
+void BusHandler::notifyComponents(const BusMessage &msg)
 {
   int address = int(msg.id);
   auto itr = observer.find(address);

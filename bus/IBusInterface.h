@@ -19,13 +19,15 @@ struct BusMessage
 class IBusInterface
 {
   public:
-  virtual bool receiveMessage(BusMessage &msg) = 0;
   virtual bool sendMessage(const BusMessage &msg) = 0;
   virtual      ~IBusInterface() {};
           void setBusHandler(BusHandler *busHandler) {m_busHandler = busHandler;};
 
   protected:
   BusHandler*  m_busHandler;
+
+  public:
+  virtual bool notifyBusHandler(BusMessage &msg) = 0;
 };
 
 

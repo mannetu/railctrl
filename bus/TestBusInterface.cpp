@@ -7,7 +7,7 @@ Implementation of IBusinterface for Testing
 #include "TestBusInterface.h"
 
 
-bool TestBusInterface::receiveMessage(BusMessage &msg)
+bool TestBusInterface::notifyBusHandler(BusMessage &msg)
 {
   std::cout << "\nInput message:\n" << "ID: ? ";
   std::cin >> msg.id;
@@ -17,7 +17,7 @@ bool TestBusInterface::receiveMessage(BusMessage &msg)
     std::cin >> msg.data[i];
   }
   std::cout << '\n';
-  m_busHandler->notifyComponent(msg);
+  m_busHandler->update(msg);
   return 0;
 }
 
