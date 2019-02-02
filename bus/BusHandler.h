@@ -12,6 +12,7 @@ class BusHandler
   public:
   void sendMessage(const BusMessage &msg);
   void notifyComponent(const BusMessage &msg);
+  void listComponents();
   void setInterface(IBusInterface *interface) {m_interface = interface;}
   void registerComponent(IComponent*);
 

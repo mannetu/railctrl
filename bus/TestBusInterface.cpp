@@ -6,7 +6,7 @@ Implementation of IBusinterface for Testing
 #include "TestBusInterface.h"
 
 
-bool TestBusInterface::receiveMsg(BusMessage &msg)
+bool TestBusInterface::receiveMessage(BusMessage &msg)
 {
   std::cout << "Input message:\n" << "ID: ? ";
   std::cin >> msg.id;

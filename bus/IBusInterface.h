@@ -19,7 +19,7 @@ struct BusMessage
 class IBusInterface
 {
   public:
-  virtual bool receiveMsg(BusMessage &msg) = 0;
+  virtual bool receiveMessage(BusMessage &msg) = 0;
   virtual bool sendMessage(const BusMessage &msg) = 0;
   virtual ~IBusInterface() {};
   void setBusHandler(BusHandler *busHandler) {m_busHandler = busHandler;};

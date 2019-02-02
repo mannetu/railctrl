@@ -11,6 +11,11 @@ void BusHandler::sendMessage(const BusMessage &msg)
 
 void BusHandler::notifyComponent(const BusMessage &msg)
 {
+
+}
+
+void BusHandler::listComponents()
+{
   std::cout << "registered Components: \n";
   for (auto itr = observer.begin(); itr != observer.end(); ++itr)
   {
