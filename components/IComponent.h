@@ -17,11 +17,11 @@ class IComponent
   bool sendMessage(BusMessage msg) {m_busHandler->sendMessage(msg); return 0;}
 
   virtual bool update(const BusMessage &msg) = 0;
-  virtual void ping(int address) = 0;
+  virtual void ping() = 0;
 
-  private:
+  protected:
   BusHandler *m_busHandler;
-  int m_address = 0;
+  int m_address;
 };
 
 

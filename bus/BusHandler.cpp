@@ -29,7 +29,7 @@ void BusHandler::listComponents()
   std::cout << "BusHandler: Registered Components: \n";
   for (auto itr = observer.begin(); itr != observer.end(); ++itr)
   {
-    (itr->second)->ping(itr->first);
+    (itr->second)->ping();
   }
 }
 
