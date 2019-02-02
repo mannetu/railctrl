@@ -14,7 +14,7 @@
 CXX = g++ --std=c++11
 CXXFLAGS = -O3 -Wall
 #DEBUGFLAGS = -g -Wall
-INCLUDE = -I ./bus -I ./components
+INCLUDE = -I ./components -I ./bus 
 
 #Link command:
 railctrl: ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o

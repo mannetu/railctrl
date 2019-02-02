@@ -14,16 +14,16 @@ Railctrl
 
 int main(int argc, char const *argv[])
 {
-  IBusInterface *busInterface = new TestBusInterface::TestBusInterface();
-  BusHandler *busHandler = new BusHandler::BusHandler();
+  IBusInterface *busInterface = new TestBusInterface();
+  BusHandler *busHandler = new BusHandler();
 
   busHandler->setInterface(busInterface);
   busInterface->setBusHandler(busHandler);
 
 
-  IComponent *turnout = new Turnout::Turnout(3, busHandler);
+  IComponent *turnout = new Turnout(3, busHandler);
   busHandler->registerComponent(turnout);
-  IComponent *sign = new Sign::Sign(5, busHandler);
+  IComponent *sign = new Sign(5, busHandler);
   busHandler->registerComponent(sign);
 
   busHandler->listComponents();
