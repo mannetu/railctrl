@@ -3,18 +3,7 @@
 
 #include <map>
 #include "IBusInterface.h"
-
-
-class IComponent
-{
-  public:
-  IComponent(int address) {m_address = address;}
-  int getAddress() {return m_address;}
-
-  private:
-  int m_address = 0;
-};
-
+#include "IComponent.h"
 
 class BusHandler
 {
