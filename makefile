@@ -33,4 +33,4 @@ railctrl: ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o
 
 #make clean
 clean:
-	rm	-fr	./*/*.o -R
+	rm	-fr	./*/*.o ./railctrl

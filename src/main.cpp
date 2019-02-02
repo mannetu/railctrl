@@ -21,5 +21,12 @@ int main(int argc, char const *argv[])
 
   busHandler->sendMessage(msg);
 
+  IComponent *turnout = new IComponent::IComponent(3);
+  busHandler->registerComponent(turnout);
+  IComponent *sign = new IComponent::IComponent(4);
+  busHandler->registerComponent(sign);
+
+  busHandler->notifyComponent(msg);
+
   return 0;
 }
