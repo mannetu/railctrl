@@ -32,7 +32,5 @@ int main(int argc, char const *argv[])
   busInterface->notifyBusHandler(msg);
 
   turnout->toggle();
-
-
   return 0;
 }
