@@ -12,12 +12,12 @@ private:
   BusHandler *m_busHandler;
   std::vector<Module*> vModule;
 
-  bool putTogether();
+  bool testPutTogether();
 
 public:
   Layout(BusHandler* busHandler);
   virtual ~Layout() {};
-
+  bool setup(std::string configFile);
   bool pingComponents();
 
 
