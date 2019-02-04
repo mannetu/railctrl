@@ -4,19 +4,23 @@
 #include <vector>
 #include <string>
 
+
+class BusHandler;
 class IComponent;
 
 class Module
 {
 private:
+  BusHandler *m_busHandler;
   std::vector<IComponent*> turnoutsVector;
   std::vector<IComponent*> signsVector;
 
+  bool putTogetherModule();
   bool addComponent(std::string component, std::string name);
 
 public:
-  Module ();
-  virtual ~Module ();
+  Module(BusHandler* busHandler);
+  virtual ~Module() {};
 
 };
 
