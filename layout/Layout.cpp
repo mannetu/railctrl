@@ -18,11 +18,8 @@ bool Layout::setup(std::string configFile)
 
 bool Layout::addModule()
 {
-// >> for testing------------------
-  Module *module01 = new Module(m_busHandler);
-  vModule.push_back(module01);
-// --------------------------<<<<<
-
+  Module *newModule = new Module(m_busHandler);
+  vModule.push_back(newModule);
   return 0;
 }
 
