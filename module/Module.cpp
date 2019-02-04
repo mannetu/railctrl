@@ -9,10 +9,10 @@
 
 Module::Module(BusHandler *busHandler) : m_busHandler(busHandler)
 {
-  putTogetherModule();
+  putTogether();
 }
 
-bool Module::putTogetherModule()
+bool Module::putTogether()
 {
 // >> for testing------------------
   addComponent("turnout");
