@@ -11,7 +11,9 @@ class IComponent
   IComponent(int address, BusHandler* busHandler)
     : m_busHandler(busHandler), m_address(address) {};
 
-           int getAddress() {return m_address;}
+  virtual ~IComponent() {};
+
+  int getAddress() {return m_address;}
   virtual bool update(const BusMessage &msg) = 0;
   virtual void ping() = 0;
   virtual void toggle() {};
