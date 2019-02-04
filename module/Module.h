@@ -15,7 +15,7 @@ private:
   std::vector<IComponent*> turnoutsVector;
   std::vector<IComponent*> signsVector;
 
-  bool putTogetherModule();
+  bool putTogether();
   bool addComponent(std::string component);
 
 public:

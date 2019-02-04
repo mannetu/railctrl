@@ -8,7 +8,7 @@ Railctrl
 #include "IBusInterface.h"
 #include "TestBusInterface.h"
 #include "BusHandler.h"
-#include "Module.h"
+#include "Layout.h"
 
 int main(int argc, char const *argv[])
 {
@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
   busHandler->setInterface(busInterface);
   busInterface->setBusHandler(busHandler);
 
-  Module *module01 = new Module(busHandler);
+
 
   busHandler->listComponents();
 
@@ -29,8 +29,8 @@ int main(int argc, char const *argv[])
   //BusMessage msg;
   //busInterface->notifyBusHandler(msg);
 
-
-  module01->pingComponents();
+  Layout *layout = new Layout(busHandler);
+  layout->pingComponents();
 
   return 0;
 }
