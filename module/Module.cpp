@@ -14,17 +14,20 @@ Module::Module(BusHandler *busHandler) : m_busHandler(busHandler)
 
 bool Module::putTogetherModule()
 {
-  addComponent("turnout", "Bahnhof");
-  addComponent("sign", "Tunnel");
+// >> for testing------------------
+  addComponent("turnout");
+  addComponent("sign");
+// --------------------------<<<<<
+
   return 0;
 }
 
-bool Module::addComponent(std::string component, std::string name)
+bool Module::addComponent(std::string component)
 {
-  int address = 32;
+
   IComponent *newComponent;
-  if (component == "turnout") newComponent = new Turnout(address, m_busHandler);
-  if (component == "sign")    newComponent = new Sign(address, m_busHandler);
+  if (component == "turnout") newComponent = new Turnout(3, m_busHandler);
+  if (component == "sign")    newComponent = new Sign(5, m_busHandler);
 
   if (newComponent != nullptr)
   {
@@ -38,4 +41,17 @@ bool Module::addComponent(std::string component, std::string name)
     return 1;
   }
 
+}
+
+bool Module::pingComponents()
+{
+  for (int i = 0; i < turnoutsVector.size(); i++)
+  {
+    turnoutsVector.at(i)->ping();
+  }
+  for (int i = 0; i < signsVector.size(); i++)
+  {
+    signsVector.at(i)->ping();
+  }
+  return 0;
 }

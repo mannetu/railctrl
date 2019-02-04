@@ -24,6 +24,6 @@ bool Sign::update(const BusMessage &msg)
   return 0;
 }
 
-void Sign::ping() {std::cout << "Sign mit address: " << m_address << '\n';}
+void Sign::ping() {std::cout << "Ping: Sign mit address: " << m_address << '\n';}
 
 #endif

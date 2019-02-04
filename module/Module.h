@@ -16,11 +16,14 @@ private:
   std::vector<IComponent*> signsVector;
 
   bool putTogetherModule();
-  bool addComponent(std::string component, std::string name);
+  bool addComponent(std::string component);
 
 public:
   Module(BusHandler* busHandler);
   virtual ~Module() {};
+
+  bool pingComponents();
+
 
 };
 
