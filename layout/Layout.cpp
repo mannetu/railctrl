@@ -7,7 +7,7 @@
 
 Layout::Layout(BusHandler *busHandler) : m_busHandler(busHandler)
 {
-  testPutTogether();
+  addModule();
 };
 
 bool Layout::setup(std::string configFile)
@@ -16,7 +16,7 @@ bool Layout::setup(std::string configFile)
   return 0;
 }
 
-bool Layout::testPutTogether()
+bool Layout::addModule()
 {
 // >> for testing------------------
   Module *module01 = new Module(m_busHandler);

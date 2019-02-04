@@ -12,7 +12,7 @@ private:
   BusHandler *m_busHandler;
   std::vector<Module*> vModule;
 
-  bool testPutTogether();
+  bool addModule();
 
 public:
   Layout(BusHandler* busHandler);
