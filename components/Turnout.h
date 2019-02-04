@@ -27,7 +27,7 @@ bool Turnout::update(const BusMessage &msg)
 
 void Turnout::ping()
 {
-  std::cout << "Turnout mit address: " << m_address << '\n';
+  std::cout << "Ping: Turnout mit address: " << m_address << '\n';
 }
 
 void Turnout::toggle()

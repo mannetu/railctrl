@@ -5,12 +5,10 @@ Railctrl
 
 #include <iostream>
 
-#include "TestBusInterface.h"
 #include "IBusInterface.h"
+#include "TestBusInterface.h"
 #include "BusHandler.h"
-#include "IComponent.h"
-#include "Turnout.h"
-#include "Sign.h"
+#include "Module.h"
 
 int main(int argc, char const *argv[])
 {
@@ -20,17 +18,19 @@ int main(int argc, char const *argv[])
   busHandler->setInterface(busInterface);
   busInterface->setBusHandler(busHandler);
 
-
-  IComponent *turnout = new Turnout(3, busHandler);
-  busHandler->registerComponent(turnout);
-  IComponent *sign = new Sign(5, busHandler);
-  busHandler->registerComponent(sign);
+  Module *module01 = new Module(busHandler);
 
   busHandler->listComponents();
 
-  BusMessage msg;
-  busInterface->notifyBusHandler(msg);
+/*
+  Only for testing. Later put as method into IbusInterface.
+  Will be called once physical message arrives
+*/
+  //BusMessage msg;
+  //busInterface->notifyBusHandler(msg);
 
-  turnout->toggle();
+
+  module01->pingComponents();
+
   return 0;
 }
