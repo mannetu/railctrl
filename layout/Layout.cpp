@@ -7,16 +7,19 @@
 
 Layout::Layout(BusHandler *busHandler) : m_busHandler(busHandler)
 {
-  putTogether();
+  addModule();
 };
 
-bool Layout::putTogether()
+bool Layout::setup(std::string configFile)
 {
-// >> for testing------------------
-  Module *module01 = new Module(m_busHandler);
-  vModule.push_back(module01);
-// --------------------------<<<<<
+  //load config_File and parse to setup modules containing components
+  return 0;
+}
 
+bool Layout::addModule()
+{
+  Module *newModule = new Module(m_busHandler);
+  vModule.push_back(newModule);
   return 0;
 }
 

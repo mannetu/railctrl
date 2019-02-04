@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Module.h"
 #include "BusHandler.h"
-#include "IBusInterface.h" // wegen BusMessage class auslagern
+#include "IBusInterface.h" // for class BusMessage??
 #include "IComponent.h"
 #include "Turnout.h"
 #include "Sign.h"
