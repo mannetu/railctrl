@@ -15,7 +15,6 @@ struct ModuleComponents
 }
 */
 
-
 ModuleLoader::ModuleLoader(BusHandler *busHandler) : m_busHandler(busHandler)
 {
 }
@@ -31,21 +30,20 @@ bool ModuleLoader::getModuleComponents(const std::string &fileName)
   }
 
   ComponentInfo componentInfo;
-  while (!getLine(componentInfo, fileStream))
-  {
-    std::cout << componentInfo.type << " / " << componentInfo.label << '\n';
-  }
 
+  while (!fileStream.eof())
+  {
+    std::string line;
+    std::getline(fileStream, line, ',');
+    if (line[0] == '#') std::cout << "Comment: " << line << '\n';
+    else
+    {
+      componentInfo.type = line;
+      std::getline(fileStream, line, ',');
+      componentInfo.label = line;
+      std::cout << componentInfo.type << " / " << componentInfo.label << '\n';
+    }
+  }
   fileStream.close();
   return 0;
-}
-
-lineReturnCode ModuleLoader::getLine(ComponentInfo &componentInfo, std::ifstream &fileStream)
-{
-  std::string line;
-  std::getline(fileStream, line, ',');
-  if (line[0] != '#') return IS_COMMENT;
-  std::getline(fileStream, componentInfo.type, ',');
-  std::getline(fileStream, componentInfo.label);
-  return IS_OK;
 }

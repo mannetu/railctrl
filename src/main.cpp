@@ -1,3 +1,9 @@
+/*
+Compile from directory railctrl with
+
+g++ ./src/main.cpp ./module/Moduleloader.cpp -I ./bus/ -I ./components/ -I ./module/ --std=c++11
+
+*/
 
 #include "string"
 #include "Moduleloader.h"

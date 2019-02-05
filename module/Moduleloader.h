@@ -25,7 +25,6 @@ class ModuleLoader
 {
   private:
   BusHandler *m_busHandler;
-  lineReturnCode getLine(ComponentInfo &componentInfo, std::ifstream &fileStream);
 
   public:
   ModuleLoader(BusHandler *busHandler);
