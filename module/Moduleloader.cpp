@@ -29,18 +29,27 @@ bool ModuleLoader::getModuleComponents(const std::string &fileName)
     return 1;
   }
 
-  ComponentInfo componentInfo;
 
   while (!fileStream.eof())
   {
+    ComponentInfo componentInfo;
     std::string line;
-    std::getline(fileStream, line, ',');
-    if (line[0] == '#') std::cout << "Comment: " << line << '\n';
+    fileStream >> line;
+    if (line[0] == '#')
+    {
+      std::string comment;
+      getline(fileStream, comment);
+      std::cout << "Comment: " << comment << '\n';
+    }
     else
     {
       componentInfo.type = line;
-      std::getline(fileStream, line, ',');
+      fileStream >> line;
       componentInfo.label = line;
+      fileStream.ignore(256,'\n');
+    }
+    if (componentInfo.type != "")
+    {
       std::cout << componentInfo.type << " / " << componentInfo.label << '\n';
     }
   }

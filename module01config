@@ -1,4 +1,7 @@
-# blubb
-Turnout1,Bahnhof1,
-Turnout2,Bahnhof2,
-Sign, Tunnel,
+# blubb dies ist ein Kommentar
+
+Turnout1  Bahnhof1  bling
+Turnout2  Bahnhof2
+
+# Hallo, Andreas
+Sign      Tunnel
