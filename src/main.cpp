@@ -1,35 +1,14 @@
-/*
-Railctrl
 
-*/
-
-#include <iostream>
-
-#include "IBusInterface.h"
-#include "TestBusInterface.h"
+#include "string"
+#include "Moduleloader.h"
 #include "BusHandler.h"
-#include "Layout.h"
 
 int main(int argc, char const *argv[])
 {
-  IBusInterface *busInterface = new TestBusInterface();
   BusHandler *busHandler = new BusHandler();
 
-  busHandler->setInterface(busInterface);
-  busInterface->setBusHandler(busHandler);
-
-  Layout *layout = new Layout(busHandler);
-  //layout->setup("config_file.txt")
-  layout->pingComponents();
-
-  busHandler->listComponents();
-
-//*
-  // Only for testing. Later put as method into IbusInterface.
-  // Will be called once physical message arrives
-  BusMessage msg;
-  busInterface->notifyBusHandler(msg);
-//*/
+  ModuleLoader *moduleLoader = new ModuleLoader(busHandler);
+  moduleLoader->getModuleComponents("module01config");
 
   return 0;
 }
