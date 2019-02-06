@@ -12,20 +12,20 @@ Railctrl
 
 int main(int argc, char const *argv[])
 {
-try
-{
-  IBusInterface *busInterface = new TestBusInterface();
-  BusHandler *busHandler = new BusHandler();
+  try
+  {
+    IBusInterface *busInterface = new TestBusInterface();
+    BusHandler *busHandler = new BusHandler();
 
-  busHandler->setInterface(busInterface);
-  busInterface->setBusHandler(busHandler);
+    busHandler->setInterface(busInterface);
+    busInterface->setBusHandler(busHandler);
 
-  Layout *layout = new Layout(busHandler);
-  layout->setup();
+    Layout *layout = new Layout(busHandler);
+    layout->setup();
 
-  //layout->pingComponents();
+    //layout->pingComponents();
 
-  busHandler->listComponents();
+    busHandler->listComponents();
 
 //*
   // Only for testing. Later put as method into IbusInterface.
@@ -34,11 +34,17 @@ try
   //busInterface->notifyBusHandler(msg);
 //*/
 
-}
+  }
 
   catch (std::exception &e)
   {
     std::cout << "Error: " << e.what() << '\n';
   }
+
+  catch (...)
+  {
+    std::cout << "Error: Caught unknown exception." << '\n';
+  }
+
   return 0;
 }
