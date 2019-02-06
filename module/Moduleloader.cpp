@@ -8,34 +8,26 @@
 #include "IComponent.h"
 
 
-std::vector<ComponentImport> v_componentImport;
-
-ModuleLoader::ModuleLoader()
-{
-}
-
 bool ModuleLoader::getComponents(const std::string &fileName, std::vector<ComponentImport> &v_componentImport)
 {
   std::ifstream fileStream;
   fileStream.open(fileName, std::ios::in);
   if (!fileStream.is_open())
   {
-    throw std::runtime_error("ModuleLoader::getComponents: File " + fileName + " not found" + '\n');
-    return 1;
+    throw std::runtime_error("ModuleLoader::getComponents: File "
+      + fileName + " not found" + '\n');
   }
 
   while (!fileStream.eof())
   {
     ComponentImport componentImport{"","",0};
     std::string line;
-    int address = 0;
     fileStream >> line;
 
     if (line[0] == '#')
     {
       std::string comment;
       getline(fileStream, comment);
-//      std::cout << "Comment: " << comment << '\n';
     }
     else
     {
@@ -44,6 +36,7 @@ bool ModuleLoader::getComponents(const std::string &fileName, std::vector<Compon
       fileStream >> line;
       componentImport.label = line;
 
+      int address = 0;
       fileStream >> address;
       if (!fileStream.good()) break;
       componentImport.address = address;
@@ -53,8 +46,6 @@ bool ModuleLoader::getComponents(const std::string &fileName, std::vector<Compon
       if (componentImport.type != "")
       {
         v_componentImport.push_back(componentImport);
-    //    std::cout << componentImport.type << " / " << componentImport.label
-    //      << " / " << componentImport.address << '\n';
       }
     }
   }

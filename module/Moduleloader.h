@@ -20,7 +20,7 @@ struct ComponentImport
 class ModuleLoader
 {
   public:
-  ModuleLoader();
+  ModuleLoader() {};
   bool getComponents(const std::string &fileName, std::vector<ComponentImport> &v_componentImport);
 };
 
