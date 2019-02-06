@@ -18,7 +18,7 @@ bool Module::load(std::string configFile)
   std::vector<ComponentImport> v_componentImport;
   moduleLoader->getComponents(configFile, v_componentImport);
 
-  for (int i = 0; i < v_componentImport.size(); i++)
+  for (size_t i = 0; i < v_componentImport.size(); i++)
   {
     addComponent(v_componentImport.at(i).type, v_componentImport.at(i).label, v_componentImport.at(i).address);
   }
@@ -40,7 +40,7 @@ bool Module::addComponent(std::string type, std::string label, int address)
   }
   else
   {
-    std::cerr << "Error: Component type -" << type << "- is unknown" << '\n';
+    throw std::runtime_error("Module::addComponent: Component type -" + type + "- is unknown" + '\n');
     return 1;
   }
 
@@ -48,11 +48,11 @@ bool Module::addComponent(std::string type, std::string label, int address)
 
 bool Module::pingComponents()
 {
-  for (int i = 0; i < turnoutsVector.size(); i++)
+  for (size_t i = 0; i < turnoutsVector.size(); i++)
   {
     turnoutsVector.at(i)->ping();
   }
-  for (int i = 0; i < signsVector.size(); i++)
+  for (size_t i = 0; i < signsVector.size(); i++)
   {
     signsVector.at(i)->ping();
   }

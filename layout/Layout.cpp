@@ -10,21 +10,22 @@ Layout::Layout(BusHandler *busHandler) : m_busHandler(busHandler)
 
 bool Layout::setup()
 {
-  addModule();
+  addModule("module01config");
+  addModule("module02config");
   return 0;
 }
 
-bool Layout::addModule()
+bool Layout::addModule(std::string configFile)
 {
   Module *newModule = new Module(m_busHandler);
-  newModule->load("module01config");
+  newModule->load(configFile);
   vModule.push_back(newModule);
   return 0;
 }
 
 bool Layout::pingComponents()
 {
-  for (int i = 0; i < vModule.size(); i++)
+  for (size_t i = 0; i < vModule.size(); i++)
   {
     vModule.at(i)->pingComponents();
   }
