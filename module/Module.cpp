@@ -9,8 +9,7 @@
 #include "Moduleloader.h"
 #include "IBusInterface.h" // for class BusMessage??
 #include "IComponent.h"
-#include "Turnout.h"
-#include "Sign.h"
+#include "ComponentFactory.h"
 
 Module::Module(BusHandler *busHandler) : m_busHandler(busHandler)
 {}
@@ -30,21 +29,13 @@ bool Module::load(std::string configFile)
 
 bool Module::addComponent(std::string type, std::string label, int address)
 {
+  ComponentFactory componentFactory = ComponentFactory();
   IComponent *newComponent = nullptr;
-  if (type == "Turnout") newComponent = new Turnout(label, address, m_busHandler);
-  if (type == "Sign")    newComponent = new Sign(label, address, m_busHandler);
+  newComponent = componentFactory.getComponent(type);
 
-  if (newComponent != nullptr)
-  {
-    turnoutsVector.push_back(newComponent);
-    m_busHandler->registerComponent(newComponent);
-    return 0;
-  }
-  else
-  {
-    throw std::runtime_error("Module::addComponent: Component type -" + type + "- is unknown" + '\n');
-    return 1;
-  }
+  turnoutsVector.push_back(newComponent);
+  m_busHandler->registerComponent(newComponent);
+  return 0;
 
 }
 
