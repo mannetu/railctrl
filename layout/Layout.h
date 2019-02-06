@@ -17,7 +17,7 @@ private:
 public:
   Layout(BusHandler* busHandler);
   virtual ~Layout() {};
-  bool setup(std::string configFile);
+  bool setup();
   bool pingComponents();
 
 

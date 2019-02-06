@@ -6,13 +6,11 @@
 
 
 Layout::Layout(BusHandler *busHandler) : m_busHandler(busHandler)
+{};
+
+bool Layout::setup()
 {
   addModule();
-};
-
-bool Layout::setup(std::string configFile)
-{
-  //load config_File and parse to setup modules containing components
   return 0;
 }
 

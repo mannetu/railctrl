@@ -19,8 +19,9 @@ int main(int argc, char const *argv[])
   busInterface->setBusHandler(busHandler);
 
   Layout *layout = new Layout(busHandler);
-  //layout->setup("config_file.txt")
-  layout->pingComponents();
+  layout->setup();
+
+  //layout->pingComponents();
 
   busHandler->listComponents();
 
