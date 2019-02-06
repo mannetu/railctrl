@@ -35,7 +35,7 @@ bool ModuleLoader::getComponents(const std::string &fileName, std::vector<Compon
     {
       std::string comment;
       getline(fileStream, comment);
-    //  std::cout << "Comment: " << comment << '\n';
+//      std::cout << "Comment: " << comment << '\n';
     }
     else
     {
@@ -53,8 +53,8 @@ bool ModuleLoader::getComponents(const std::string &fileName, std::vector<Compon
       if (componentImport.type != "")
       {
         v_componentImport.push_back(componentImport);
-      //  std::cout << componentImport.type << " / " << componentImport.label
-      //    << " / " << componentImport.address << '\n';
+    //    std::cout << componentImport.type << " / " << componentImport.label
+    //      << " / " << componentImport.address << '\n';
       }
     }
   }

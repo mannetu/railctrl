@@ -1,7 +1,8 @@
 # blubb dies ist ein Kommentar
 
-Turnout1  Bahnhof1  0
-Turnout2  Bahnhof2  5
+Turnout  Bahnhof1  0
+Turnout  Bahnhof2  5
 
 # Hallo, Andreas
-Sign      Tunnel    2
+Sign     Tunnel    2
+Sign     Einfahrt 23 

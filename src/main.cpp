@@ -27,8 +27,8 @@ int main(int argc, char const *argv[])
 //*
   // Only for testing. Later put as method into IbusInterface.
   // Will be called once physical message arrives
-  BusMessage msg;
-  busInterface->notifyBusHandler(msg);
+  //BusMessage msg;
+  //busInterface->notifyBusHandler(msg);
 //*/
 
   return 0;

@@ -14,12 +14,12 @@ private:
   std::vector<IComponent*> turnoutsVector;
   std::vector<IComponent*> signsVector;
 
-  bool putTogether();
   bool addComponent(std::string type, std::string label, int address);
 
 public:
   Module(BusHandler* busHandler);
   virtual ~Module() {};
+  bool load(std::string configFile);
 
   bool pingComponents();
 
