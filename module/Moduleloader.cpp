@@ -10,7 +10,7 @@
 
 std::vector<ComponentImport> v_componentImport;
 
-ModuleLoader::ModuleLoader(BusHandler *busHandler) : m_busHandler(busHandler)
+ModuleLoader::ModuleLoader()
 {
 }
 

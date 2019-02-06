@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Module.h"
 #include "BusHandler.h"
+#include "Moduleloader.h"
 #include "IBusInterface.h" // for class BusMessage??
 #include "IComponent.h"
 #include "Turnout.h"
@@ -14,7 +15,7 @@ Module::Module(BusHandler *busHandler) : m_busHandler(busHandler)
 
 bool Module::putTogether()
 {
-  ModuleLoader *moduleLoader = new ModuleLoader(busHandler);
+  ModuleLoader *moduleLoader = new ModuleLoader();
 
   std::vector<ComponentImport> v_componentImport;
   moduleLoader->getComponents("module01config", v_componentImport);
@@ -24,7 +25,7 @@ bool Module::putTogether()
     std::cout << v_componentImport.at(i).type << " / " << v_componentImport.at(i).label
       << " / " << v_componentImport.at(i).address << '\n';
 
-    addComponent(v_componentImport.at(i).type, v_componentImport.at(i).label, v_componentImport.at(i).address)
+    addComponent(v_componentImport.at(i).type, v_componentImport.at(i).label, v_componentImport.at(i).address);
 
   }
 

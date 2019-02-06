@@ -3,7 +3,7 @@
 
 #include <vector>
 
-class BusHandler;
+
 class IComponent;
 
 
@@ -15,20 +15,12 @@ struct ComponentImport
   std::string label;
   int address;
 };
-/*
-struct ModuleComponents
-{
-  std::vector<IComponent*> turnoutsVector;
-  std::vector<IComponent*> signsVector;
-};
-*/
+
+
 class ModuleLoader
 {
-  private:
-  BusHandler *m_busHandler;
-
   public:
-  ModuleLoader(BusHandler *busHandler);
+  ModuleLoader();
   bool getComponents(const std::string &fileName, std::vector<ComponentImport> &v_componentImport);
 };
 

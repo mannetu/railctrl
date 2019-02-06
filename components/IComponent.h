@@ -10,7 +10,7 @@ class IComponent
 {
   public:
   IComponent(std::string label, int address, BusHandler* busHandler)
-    : m_label(label), m_busHandler(busHandler), m_address(address) {};
+    : m_label(label),  m_address(address), m_busHandler(busHandler) {};
 
   virtual ~IComponent() {};
 
