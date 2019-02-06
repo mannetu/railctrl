@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "BusHandler.h"
+#include "BusMessage.h"
 
 class IComponent
 {

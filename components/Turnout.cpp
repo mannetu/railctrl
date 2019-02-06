@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include "BusMessage.h"
 #include "Turnout.h"
 //#include "IBusInterface.h"
 
