@@ -5,6 +5,10 @@
 #include "Turnout.h"
 #include "Sign.h"
 
+
+ComponentFactory::ComponentFactory() {};
+
+
 IComponent* ComponentFactory::getComponent(std::string type, std::string label, int address)
 {
   IComponent* newComponent = nullptr;

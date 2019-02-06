@@ -4,8 +4,6 @@
 #include <vector>
 
 
-//enum lineReturnCode {IS_OK, IS_COMMENT};
-
 struct ComponentImport
 {
   std::string type;

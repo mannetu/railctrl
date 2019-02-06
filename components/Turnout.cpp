@@ -2,7 +2,6 @@
 #include <iostream>
 #include "BusMessage.h"
 #include "Turnout.h"
-//#include "IBusInterface.h"
 
 bool Turnout::update(const BusMessage &msg)
 {

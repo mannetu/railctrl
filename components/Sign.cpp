@@ -1,7 +1,6 @@
 #include <iostream>
 #include "BusMessage.h"
 #include "Sign.h"
-//#include "IBusInterface.h"
 
 bool Sign::update(const BusMessage &msg)
 {

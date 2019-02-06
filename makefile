@@ -18,7 +18,7 @@ INCLUDE = -I ./components -I ./bus -I ./module -I ./layout
 
 #Link command:
 railctrl: ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o ./module/Module.o ./components/Turnout.o ./components/Sign.o ./components/ComponentFactory.o ./module/Moduleloader.o ./layout/Layout.o
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -v ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o ./module/Module.o ./components/Turnout.o ./components/Sign.o ./components/ComponentFactory.o ./module/Moduleloader.o ./layout/Layout.o -o railctrl
+	$(CXX) $(CXXFLAGS) $(INCLUDE) ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o ./module/Module.o ./components/Turnout.o ./components/Sign.o ./components/ComponentFactory.o ./module/Moduleloader.o ./layout/Layout.o -o railctrl
 
 #Compilation commands:
 ./src/main.o: ./src/main.cpp
