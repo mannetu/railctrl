@@ -1,3 +1,7 @@
+//  Module.cpp
+//
+//
+//
 
 #include <iostream>
 #include "Module.h"
@@ -13,17 +17,14 @@ Module::Module(BusHandler *busHandler) : m_busHandler(busHandler)
 
 bool Module::load(std::string configFile)
 {
-  ModuleLoader *moduleLoader = new ModuleLoader();
-
+  ModuleLoader moduleLoader = ModuleLoader();
   std::vector<ComponentImport> v_componentImport;
-  moduleLoader->getComponents(configFile, v_componentImport);
-
+  moduleLoader.getComponents(configFile, v_componentImport);
   for (size_t i = 0; i < v_componentImport.size(); i++)
   {
     addComponent(v_componentImport.at(i).type, v_componentImport.at(i).label,
       v_componentImport.at(i).address);
   }
-
   return 0;
 }
 
@@ -50,12 +51,10 @@ bool Module::addComponent(std::string type, std::string label, int address)
 bool Module::pingComponents()
 {
   for (size_t i = 0; i < turnoutsVector.size(); i++)
-  {
     turnoutsVector.at(i)->ping();
-  }
+
   for (size_t i = 0; i < signsVector.size(); i++)
-  {
     signsVector.at(i)->ping();
-  }
+
   return 0;
 }
