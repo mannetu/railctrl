@@ -20,7 +20,8 @@ bool Module::load(std::string configFile)
 
   for (size_t i = 0; i < v_componentImport.size(); i++)
   {
-    addComponent(v_componentImport.at(i).type, v_componentImport.at(i).label, v_componentImport.at(i).address);
+    addComponent(v_componentImport.at(i).type, v_componentImport.at(i).label,
+      v_componentImport.at(i).address);
   }
 
   return 0;

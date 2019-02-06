@@ -3,12 +3,9 @@
 #include <iostream>
 #include <fstream>
 #include "Moduleloader.h"
-#include "BusHandler.h"
-#include "IBusInterface.h" // for class BusMessage??
-#include "IComponent.h"
 
-
-bool ModuleLoader::getComponents(const std::string &fileName, std::vector<ComponentImport> &v_componentImport)
+bool ModuleLoader::getComponents(const std::string &fileName,
+  std::vector<ComponentImport> &v_componentImport)
 {
   std::ifstream fileStream;
   fileStream.open(fileName, std::ios::in);

@@ -4,10 +4,7 @@
 #include <vector>
 
 
-class IComponent;
-
-
-enum lineReturnCode {IS_OK, IS_COMMENT};
+//enum lineReturnCode {IS_OK, IS_COMMENT};
 
 struct ComponentImport
 {
