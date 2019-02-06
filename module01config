@@ -1,8 +1,9 @@
-# blubb dies ist ein Kommentar
+# Module01
+#
+# type    label     address
 
-Turnout  Bahnhof1  0
-Turnout  Bahnhof2  5
+  Turnout  Bahnhof1  0
+  Turnout  Bahnhof2  5
 
-# Hallo, Andreas
-Sign     Tunnel    2
-Sign     Einfahrt 23 
+  Sign     Tunnel    2
+  Sign     Einfahrt 23

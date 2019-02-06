@@ -4,9 +4,7 @@
 #include "IComponent.h"
 #include "Turnout.h"
 #include "Sign.h"
-
-
-//ComponentFactory::ComponentFactory() {};
+#include "Track.h"
 
 
 IComponent* ComponentFactory::getComponent(std::string type, std::string label, int address)
@@ -14,6 +12,7 @@ IComponent* ComponentFactory::getComponent(std::string type, std::string label, 
   IComponent* newComponent = nullptr;
   if (type == "Turnout") newComponent = new Turnout(label, address);
   if (type == "Sign")    newComponent = new Sign(label, address);
+  if (type == "Track")  newComponent = new Track(label, address);
 
   if (newComponent != nullptr)
   {

@@ -1,9 +1,12 @@
-# Kommentar: Weichen
+# Module02
+#
+# type    label           address
 
-Turnout  Dietenheim       12
-Turnout  Regglisweiler     5
+Turnout   Dietenheim       12
+Turnout   Regglisweiler     5
 
-# Hallo, Andreas
+Sign      Tunnel           32
+Sign      Bhf_links        33
 
-Sign     Tunnel_hinten    32
-Sign     Bhf_links        33
+Track     Schatten         45
+Track     Blubb            77
