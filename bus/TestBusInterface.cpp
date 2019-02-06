@@ -4,6 +4,7 @@ Implementation of IBusinterface for Testing
 
 #include <iostream>
 #include "BusHandler.h"
+#include "BusMessage.h"
 #include "TestBusInterface.h"
 
 

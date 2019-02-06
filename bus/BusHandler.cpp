@@ -1,7 +1,8 @@
 
 #include <iostream>
-#include "IBusInterface.h"
 #include "BusHandler.h"
+#include "BusMessage.h"
+#include "IBusInterface.h"
 #include "IComponent.h"
 
 //------------------------------------------------------------------

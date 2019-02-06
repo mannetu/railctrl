@@ -9,7 +9,7 @@ class ComponentFactory
 {
   public:
   ComponentFactory();
-  IComponent* getComponent(std::string type);
+  IComponent* getComponent(std::string type, std::string label, int address);
 };
 
 

@@ -6,8 +6,9 @@ Implementation of IBusinterface for testing purpose
 */
 
 #include <iostream>
-#include "IBusInterface.h"
+//#include "IBusInterface.h"
 
+struct BusMessage;
 
 class TestBusInterface : public IBusInterface
 {

@@ -1,16 +1,15 @@
 
 
-#include "IComponent.h"
 #include "ComponentFactory.h"
+#include "IComponent.h"
 #include "Turnout.h"
 #include "Sign.h"
 
-
-IComponent* ComponentFactory::getComponent(std::string type)
+IComponent* ComponentFactory::getComponent(std::string type, std::string label, int address)
 {
   IComponent* newComponent = nullptr;
-  if (type == "Turnout") newComponent = new Turnout(label, address, m_busHandler);
-  if (type == "Sign")    newComponent = new Sign(label, address, m_busHandler);
+  if (type == "Turnout") newComponent = new Turnout(label, address);
+  if (type == "Sign")    newComponent = new Sign(label, address);
 
   if (newComponent != nullptr)
   {

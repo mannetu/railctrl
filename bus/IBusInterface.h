@@ -8,13 +8,8 @@ Interface class for low-level bus controllers
 
 #include <cstdint>
 
+struct BusMessage;
 class BusHandler;
-
-struct BusMessage
-{
-  int id      = 0;
-  int data[8] = {0,0,0,0,0,0,0,0}; // cout type with "+0"
-};
 
 class IBusInterface
 {

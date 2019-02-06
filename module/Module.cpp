@@ -7,7 +7,8 @@
 #include "Module.h"
 #include "BusHandler.h"
 #include "Moduleloader.h"
-#include "IBusInterface.h" // for class BusMessage??
+//#include "IBusInterface.h" // for class BusMessage??
+#include "BusMessage.h"
 #include "IComponent.h"
 #include "ComponentFactory.h"
 
@@ -31,7 +32,8 @@ bool Module::addComponent(std::string type, std::string label, int address)
 {
   ComponentFactory componentFactory = ComponentFactory();
   IComponent *newComponent = nullptr;
-  newComponent = componentFactory.getComponent(type);
+  newComponent = componentFactory.getComponent(type, label, address);
+  newComponent->setBusHandler(m_busHandler);
 
   turnoutsVector.push_back(newComponent);
   m_busHandler->registerComponent(newComponent);

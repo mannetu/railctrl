@@ -9,11 +9,12 @@
 class IComponent
 {
   public:
-  IComponent(std::string label, int address, BusHandler* busHandler)
-    : m_busHandler(busHandler), m_label(label),  m_address(address) {};
+  IComponent(std::string label, int address)
+    : m_label(label),  m_address(address) {};
 
   virtual ~IComponent() {};
 
+  void setBusHandler(BusHandler* busHandler) {m_busHandler = busHandler;};
   int getAddress() {return m_address;}
   virtual bool update(const BusMessage &msg) = 0;
   virtual void ping() = 0;

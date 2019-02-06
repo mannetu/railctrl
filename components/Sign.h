@@ -3,30 +3,17 @@
 
 #include <iostream>
 #include "IComponent.h"
+struct BusMessage;
 
 class Sign : public IComponent
 {
   public:
-  Sign(std::string label, int address, BusHandler* busHandler)
-    : IComponent(label, address, busHandler) {};
+  Sign(std::string label, int address)
+    : IComponent(label, address) {};
 
   bool update(const BusMessage &msg) override;
   void ping() override;
 };
 
-bool Sign::update(const BusMessage &msg)
-{
-  std::cout << "Sign: Updating with address: " << msg.id+0 << '\n';
-  for (size_t i = 0; i < 8; i++)
-  {
-    std::cout << "Data " << i << " :" << msg.data[i] << '\n';
-  }
-  return 0;
-}
-
-void Sign::ping()
-{
-  std::cout << "Ping: Sign\t-" << m_label << "- \t Address: " << m_address << '\n';
-}
 
 #endif
