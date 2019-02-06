@@ -1,6 +1,7 @@
 #ifndef MODULELOADER_H
 #define MODULELOADER_H
 
+#include <string>
 #include <vector>
 
 

@@ -8,7 +8,7 @@ class IComponent;
 class ComponentFactory
 {
   public:
-  ComponentFactory();
+  //ComponentFactory();
   IComponent* getComponent(std::string type, std::string label, int address);
 };
 

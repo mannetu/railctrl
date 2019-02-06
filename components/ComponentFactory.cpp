@@ -6,7 +6,7 @@
 #include "Sign.h"
 
 
-ComponentFactory::ComponentFactory() {};
+//ComponentFactory::ComponentFactory() {};
 
 
 IComponent* ComponentFactory::getComponent(std::string type, std::string label, int address)
