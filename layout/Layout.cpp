@@ -24,7 +24,7 @@ bool Layout::addModule()
 
 bool Layout::pingComponents()
 {
-  for (int i = 0; i < vModule.size(); i++)
+  for (size_t i = 0; i < vModule.size(); i++)
   {
     vModule.at(i)->pingComponents();
   }
