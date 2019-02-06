@@ -1,6 +1,7 @@
 #ifndef ICOMPONENT_H
 #define ICOMPONENT_H
 
+#include <string>
 #include <iostream>
 
 #include "BusHandler.h"
@@ -8,8 +9,8 @@
 class IComponent
 {
   public:
-  IComponent(int address, BusHandler* busHandler)
-    : m_busHandler(busHandler), m_address(address) {};
+  IComponent(std::string label, int address, BusHandler* busHandler)
+    : m_label(label),  m_address(address), m_busHandler(busHandler) {};
 
   virtual ~IComponent() {};
 
@@ -20,6 +21,7 @@ class IComponent
 
   protected:
   BusHandler*  m_busHandler;
+  std::string  m_label;
   int          m_address;
   bool         sendMessage(BusMessage msg) {m_busHandler->sendMessage(msg); return 0;}
 };

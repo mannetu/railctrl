@@ -2,32 +2,35 @@
 #include <iostream>
 #include "Module.h"
 #include "BusHandler.h"
+#include "Moduleloader.h"
 #include "IBusInterface.h" // for class BusMessage??
 #include "IComponent.h"
 #include "Turnout.h"
 #include "Sign.h"
 
 Module::Module(BusHandler *busHandler) : m_busHandler(busHandler)
-{
-  putTogether();
-}
+{}
 
-bool Module::putTogether()
+bool Module::load(std::string configFile)
 {
-// >> for testing------------------
-  addComponent("turnout");
-  addComponent("sign");
-// --------------------------<<<<<
+  ModuleLoader *moduleLoader = new ModuleLoader();
+
+  std::vector<ComponentImport> v_componentImport;
+  moduleLoader->getComponents(configFile, v_componentImport);
+
+  for (int i = 0; i < v_componentImport.size(); i++)
+  {
+    addComponent(v_componentImport.at(i).type, v_componentImport.at(i).label, v_componentImport.at(i).address);
+  }
 
   return 0;
 }
 
-bool Module::addComponent(std::string component)
+bool Module::addComponent(std::string type, std::string label, int address)
 {
-
-  IComponent *newComponent;
-  if (component == "turnout") newComponent = new Turnout(3, m_busHandler);
-  if (component == "sign")    newComponent = new Sign(5, m_busHandler);
+  IComponent *newComponent = nullptr;
+  if (type == "Turnout") newComponent = new Turnout(label, address, m_busHandler);
+  if (type == "Sign")    newComponent = new Sign(label, address, m_busHandler);
 
   if (newComponent != nullptr)
   {
@@ -37,7 +40,7 @@ bool Module::addComponent(std::string component)
   }
   else
   {
-    std::cerr << "Error: Component to add not available" << '\n';
+    std::cerr << "Error: Component type -" << type << "- is unknown" << '\n';
     return 1;
   }
 

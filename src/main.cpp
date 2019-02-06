@@ -19,16 +19,17 @@ int main(int argc, char const *argv[])
   busInterface->setBusHandler(busHandler);
 
   Layout *layout = new Layout(busHandler);
-  //layout->setup("config_file.txt")
-  layout->pingComponents();
+  layout->setup();
+
+  //layout->pingComponents();
 
   busHandler->listComponents();
 
 //*
   // Only for testing. Later put as method into IbusInterface.
   // Will be called once physical message arrives
-  BusMessage msg;
-  busInterface->notifyBusHandler(msg);
+  //BusMessage msg;
+  //busInterface->notifyBusHandler(msg);
 //*/
 
   return 0;
