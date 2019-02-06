@@ -17,8 +17,8 @@ CXXFLAGS = -O3 -Wall
 INCLUDE = -I ./components -I ./bus -I ./module -I ./layout
 
 #Link command:
-railctrl: ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o ./module/Module.o ./components/Turnout.o ./components/Sign.o ./components/ComponentFactory.o ./module/Moduleloader.o ./layout/Layout.o
-	$(CXX) $(CXXFLAGS) $(INCLUDE) ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o ./module/Module.o ./components/Turnout.o ./components/Sign.o ./components/ComponentFactory.o ./module/Moduleloader.o ./layout/Layout.o -o railctrl
+railctrl: ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o ./module/Module.o ./components/Turnout.o ./components/Sign.o ./components/Track.o ./components/ComponentFactory.o ./module/Moduleloader.o ./layout/Layout.o
+	$(CXX) $(CXXFLAGS) $(INCLUDE) ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o ./module/Module.o ./components/Turnout.o ./components/Sign.o ./components/Track.o ./components/ComponentFactory.o ./module/Moduleloader.o ./layout/Layout.o -o railctrl
 
 #Compilation commands:
 ./src/main.o: ./src/main.cpp
@@ -35,6 +35,9 @@ railctrl: ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o ./module/Modu
 
 ./components/Sign.o: ./components/Sign.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c ./components/Sign.cpp -o ./components/Sign.o
+
+./components/Track.o: ./components/Track.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c ./components/Track.cpp -o ./components/Track.o
 
 ./components/ComponentFactory.o: ./components/ComponentFactory.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c ./components/ComponentFactory.cpp -o ./components/ComponentFactory.o
