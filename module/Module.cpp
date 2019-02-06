@@ -40,7 +40,9 @@ bool Module::addComponent(std::string type, std::string label, int address)
   }
   else
   {
-    std::cerr << "Error: Component type -" << type << "- is unknown" << '\n';
+    std::string error;
+    error = "Component type -" + type + "- is unknown" + '\n';
+    throw std::runtime_error(error);
     return 1;
   }
 
