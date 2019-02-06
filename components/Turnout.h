@@ -7,8 +7,8 @@
 class Turnout : public IComponent
 {
   public:
-  Turnout(int address, BusHandler* busHandler)
-    : IComponent(address, busHandler) {};
+  Turnout(std::string label, int address, BusHandler* busHandler)
+    : IComponent(label, address, busHandler) {};
 
   bool update(const BusMessage &msg) override;
   void ping() override;
@@ -27,7 +27,7 @@ bool Turnout::update(const BusMessage &msg)
 
 void Turnout::ping()
 {
-  std::cout << "Turnout mit address: " << m_address << '\n';
+  std::cout << "Ping: Turnout -" << m_label << "- \t Address: " << m_address << '\n';
 }
 
 void Turnout::toggle()

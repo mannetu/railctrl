@@ -14,11 +14,11 @@
 CXX = g++ --std=c++11
 CXXFLAGS = -O3 -Wall
 #DEBUGFLAGS = -g -Wall
-INCLUDE = -I ./components -I ./bus 
+INCLUDE = -I ./components -I ./bus -I ./module -I ./layout
 
 #Link command:
-railctrl: ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o
-	$(CXX) $(CXXFLAGS) $(INCLUDE) ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o -o railctrl
+railctrl: ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o ./module/Module.o ./module/Moduleloader.o ./layout/Layout.o
+	$(CXX) $(CXXFLAGS) $(INCLUDE) ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o ./module/Module.o ./module/Moduleloader.o ./layout/Layout.o -o railctrl
 
 #Compilation commands:
 ./src/main.o: ./src/main.cpp
@@ -29,6 +29,16 @@ railctrl: ./src/main.o ./bus/BusHandler.o ./bus/TestBusInterface.o
 
 ./bus/TestBusInterface.o: ./bus/TestBusInterface.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c ./bus/TestBusInterface.cpp -o ./bus/TestBusInterface.o
+
+./module/Module.o: ./module/Module.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c ./module/Module.cpp -o ./module/Module.o
+
+./module/Moduleloader.o: ./module/Moduleloader.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c ./module/Moduleloader.cpp -o ./module/Moduleloader.o
+
+
+./layout/Layout.o: ./layout/Layout.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c ./layout/Layout.cpp -o ./layout/Layout.o
 
 
 #make clean
