@@ -26,7 +26,7 @@ bool Sign::update(const BusMessage &msg)
 
 void Sign::ping()
 {
-  std::cout << "Ping: Sign -" << m_label << "- \t Address: " << m_address << '\n';
+  std::cout << "Ping: Sign\t-" << m_label << "- \t Address: " << m_address << '\n';
 }
 
 #endif
