@@ -6,11 +6,10 @@
 #include <iostream>
 #include "Module.h"
 #include "BusMessage.h"
-#include "BusHandler.h"
-#include "Moduleloader.h"
-//#include "IBusInterface.h" // for class BusMessage??
 #include "IComponent.h"
 #include "ComponentFactory.h"
+#include "BusHandler.h"
+#include "Moduleloader.h"
 
 Module::Module(BusHandler *busHandler) : m_busHandler(busHandler)
 {}
