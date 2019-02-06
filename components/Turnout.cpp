@@ -5,10 +5,10 @@
 
 bool Turnout::update(const BusMessage &msg)
 {
-  std::cout << "Turnout: Updating with address: " << msg.id+0 << '\n';
+  std::cout << "Turnout: " << m_label << " . Address: " << msg.id+0 << " - updating data:\n";
   for (size_t i = 0; i < 8; i++)
   {
-    std::cout << "Data " << i << " :" << msg.data[i] << '\n';
+    std::cout << "Data " << i << ": " << msg.data[i] << '\n';
   }
   return 0;
 }

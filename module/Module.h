@@ -11,6 +11,7 @@ class Module
 {
 private:
   BusHandler *m_busHandler;
+
   std::vector<IComponent*> turnoutsVector;
   std::vector<IComponent*> signsVector;
 
@@ -18,12 +19,9 @@ private:
 
 public:
   Module(BusHandler* busHandler);
-  virtual ~Module() {};
   bool load(std::string configFile);
 
   bool pingComponents();
-
-
 };
 
 
