@@ -7,8 +7,8 @@
 class Sign : public IComponent
 {
   public:
-  Sign(int address, BusHandler* busHandler)
-    : IComponent(address, busHandler) {};
+  Sign(std::string label, int address, BusHandler* busHandler)
+    : IComponent(label, address, busHandler) {};
 
   bool update(const BusMessage &msg) override;
   void ping() override;

@@ -14,20 +14,29 @@ Module::Module(BusHandler *busHandler) : m_busHandler(busHandler)
 
 bool Module::putTogether()
 {
-// >> for testing------------------
-  addComponent("turnout");
-  addComponent("sign");
-// --------------------------<<<<<
+  ModuleLoader *moduleLoader = new ModuleLoader(busHandler);
+
+  std::vector<ComponentImport> v_componentImport;
+  moduleLoader->getComponents("module01config", v_componentImport);
+
+  for (int i = 0; i < v_componentImport.size(); i++)
+  {
+    std::cout << v_componentImport.at(i).type << " / " << v_componentImport.at(i).label
+      << " / " << v_componentImport.at(i).address << '\n';
+
+    addComponent(v_componentImport.at(i).type, v_componentImport.at(i).label, v_componentImport.at(i).address)
+
+  }
 
   return 0;
 }
 
-bool Module::addComponent(std::string component)
+bool Module::addComponent(std::string type, std::string label, int address)
 {
 
   IComponent *newComponent;
-  if (component == "turnout") newComponent = new Turnout(3, m_busHandler);
-  if (component == "sign")    newComponent = new Sign(5, m_busHandler);
+  if (type == "turnout") newComponent = new Turnout(label, address, m_busHandler);
+  if (type == "sign")    newComponent = new Sign(label, address, m_busHandler);
 
   if (newComponent != nullptr)
   {

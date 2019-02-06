@@ -15,7 +15,7 @@ private:
   std::vector<IComponent*> signsVector;
 
   bool putTogether();
-  bool addComponent(std::string component);
+  bool addComponent(std::string type, std::string label, int address);
 
 public:
   Module(BusHandler* busHandler);
