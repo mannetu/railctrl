@@ -7,19 +7,14 @@
 #include "IBusInterface.h" // for class BusMessage??
 #include "IComponent.h"
 
-/*
-struct ModuleComponents
-{
-  std::vector<IComponent*> turnoutsVector;
-  std::vector<IComponent*> signsVector;
-}
-*/
+
+std::vector<ComponentImport> v_componentImport;
 
 ModuleLoader::ModuleLoader(BusHandler *busHandler) : m_busHandler(busHandler)
 {
 }
 
-bool ModuleLoader::getModuleComponents(const std::string &fileName)
+bool ModuleLoader::getComponents(const std::string &fileName, std::vector<ComponentImport> &v_componentImport)
 {
   std::ifstream fileStream;
   fileStream.open(fileName, std::ios::in);
@@ -29,28 +24,38 @@ bool ModuleLoader::getModuleComponents(const std::string &fileName)
     return 1;
   }
 
-
   while (!fileStream.eof())
   {
-    ComponentInfo componentInfo;
+    ComponentImport componentImport{"","",0};
     std::string line;
+    int address = 0;
     fileStream >> line;
+
     if (line[0] == '#')
     {
       std::string comment;
       getline(fileStream, comment);
-      std::cout << "Comment: " << comment << '\n';
+    //  std::cout << "Comment: " << comment << '\n';
     }
     else
     {
-      componentInfo.type = line;
+      componentImport.type = line;
+
       fileStream >> line;
-      componentInfo.label = line;
+      componentImport.label = line;
+
+      fileStream >> address;
+      if (!fileStream.good()) break;
+      componentImport.address = address;
+
       fileStream.ignore(256,'\n');
-    }
-    if (componentInfo.type != "")
-    {
-      std::cout << componentInfo.type << " / " << componentInfo.label << '\n';
+
+      if (componentImport.type != "")
+      {
+        v_componentImport.push_back(componentImport);
+      //  std::cout << componentImport.type << " / " << componentImport.label
+      //    << " / " << componentImport.address << '\n';
+      }
     }
   }
   fileStream.close();

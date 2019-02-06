@@ -1,7 +1,7 @@
 # blubb dies ist ein Kommentar
 
-Turnout1  Bahnhof1  bling
-Turnout2  Bahnhof2
+Turnout1  Bahnhof1  0
+Turnout2  Bahnhof2  5
 
 # Hallo, Andreas
-Sign      Tunnel
+Sign      Tunnel    2

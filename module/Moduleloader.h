@@ -9,18 +9,19 @@ class IComponent;
 
 enum lineReturnCode {IS_OK, IS_COMMENT};
 
-struct ComponentInfo
+struct ComponentImport
 {
   std::string type;
   std::string label;
+  int address;
 };
-
+/*
 struct ModuleComponents
 {
   std::vector<IComponent*> turnoutsVector;
   std::vector<IComponent*> signsVector;
 };
-
+*/
 class ModuleLoader
 {
   private:
@@ -28,7 +29,7 @@ class ModuleLoader
 
   public:
   ModuleLoader(BusHandler *busHandler);
-  bool getModuleComponents(const std::string &fileName);
+  bool getComponents(const std::string &fileName, std::vector<ComponentImport> &v_componentImport);
 };
 
 
