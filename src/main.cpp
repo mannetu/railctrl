@@ -4,13 +4,15 @@ Railctrl
 */
 
 #include <iostream>
-
+#include <stdexcept>
 #include "IBusInterface.h"
 #include "TestBusInterface.h"
 #include "BusHandler.h"
 #include "Layout.h"
 
 int main(int argc, char const *argv[])
+{
+try
 {
   IBusInterface *busInterface = new TestBusInterface();
   BusHandler *busHandler = new BusHandler();
@@ -32,5 +34,11 @@ int main(int argc, char const *argv[])
   //busInterface->notifyBusHandler(msg);
 //*/
 
+}
+
+  catch (std::exception &e)
+  {
+    std::cout << "Error: " << e.what() << '\n';
+  }
   return 0;
 }

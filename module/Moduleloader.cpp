@@ -20,7 +20,7 @@ bool ModuleLoader::getComponents(const std::string &fileName, std::vector<Compon
   fileStream.open(fileName, std::ios::in);
   if (!fileStream.is_open())
   {
-    std::cout << "file not found" << '\n';
+    throw std::runtime_error("ModuleLoader::getComponents: File " + fileName + " not found" + '\n');
     return 1;
   }
 
