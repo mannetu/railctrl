@@ -17,27 +17,24 @@ Module::Module(BusHandler *busHandler) : m_busHandler(busHandler)
 bool Module::load(std::string configFile)
 {
   ModuleLoader moduleLoader = ModuleLoader();
-  std::vector<ComponentImport> v_componentImport;
-  moduleLoader.getComponents(configFile, v_componentImport);
-  for (size_t i = 0; i < v_componentImport.size(); i++)
-  {
-    addComponent(v_componentImport.at(i).type, v_componentImport.at(i).label,
-      v_componentImport.at(i).address);
-  }
-  return 0;
-}
+  std::vector<ComponentImport> vComponents;
+  moduleLoader.getComponents(configFile, vComponents);
 
-bool Module::addComponent(std::string type, std::string label, int address)
-{
   ComponentFactory componentFactory = ComponentFactory();
   IComponent *newComponent = nullptr;
-  newComponent = componentFactory.getComponent(type, label, address);
-  newComponent->setBusHandler(m_busHandler);
 
-  turnoutsVector.push_back(newComponent);
-  m_busHandler->registerComponent(newComponent);
+  for (size_t i = 0; i < vComponents.size(); i++)
+  {
+    newComponent = componentFactory.getComponent(
+      vComponents.at(i).type,
+      vComponents.at(i).label,
+      vComponents.at(i).address);
+
+    newComponent->setBusHandler(m_busHandler);
+    turnoutsVector.push_back(newComponent);
+    m_busHandler->registerComponent(newComponent);
+  }
   return 0;
-
 }
 
 bool Module::pingComponents()

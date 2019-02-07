@@ -15,10 +15,9 @@ private:
   std::vector<IComponent*> turnoutsVector;
   std::vector<IComponent*> signsVector;
 
-  bool addComponent(std::string type, std::string label, int address);
-
 public:
   Module(BusHandler* busHandler);
+
   bool load(std::string configFile);
 
   bool pingComponents();
