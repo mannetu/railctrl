@@ -14,5 +14,11 @@ std::cout << "Sign: " << m_label << " . Address: " << msg.id+0 << " - updating d
 
 void Sign::ping()
 {
-  std::cout << "Ping: Sign\t-" << m_label << "- \t Address: " << m_address << '\n';
+  std::cout << "Ping: Sign\t-" << m_label << "- \t Address: " << m_address
+            << " \t Status: "<< m_status << '\n';
 }
+
+int Sign::getStatus()
+{
+  return m_status;
+};

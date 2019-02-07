@@ -15,8 +15,15 @@ bool Turnout::update(const BusMessage &msg)
 
 void Turnout::ping()
 {
-  std::cout << "Ping: Turnout\t-" << m_label << "- \t Address: " << m_address << '\n';
+  std::cout << "Ping: Turnout\t-" << m_label << "- \t Address: " << m_address
+  << " \t Status: "<< m_status << '\n';
 }
+
+int Turnout::getStatus()
+{
+  return m_status;
+};
+
 
 void Turnout::toggle()
 {

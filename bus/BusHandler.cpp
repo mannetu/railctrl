@@ -47,5 +47,5 @@ void BusHandler::notifyComponents(const BusMessage &msg)
     (itr->second)->update(msg);
   }
   else
-    std::cerr << "BusHandler: Component not found" << '\n';
+    std::cerr << "Error: BusHandler::notifyComponents -- Component not found" << '\n';
 }

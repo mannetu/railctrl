@@ -15,8 +15,16 @@ bool Track::update(const BusMessage &msg)
 
 void Track::ping()
 {
-  std::cout << "Ping: Track\t-" << m_label << "- \t Address: " << m_address << '\n';
+  std::cout << "Ping: Track\t-" << m_label << "- \t Address: " << m_address
+  << " \t Status: "<< m_status << '\n';
+
 }
+
+int Track::getStatus()
+{
+  return m_status;
+};
+
 
 void Track::toggle()
 {

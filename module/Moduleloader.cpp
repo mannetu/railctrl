@@ -17,7 +17,7 @@ bool ModuleLoader::getComponents(const std::string &fileName,
 
   while (!fileStream.eof())
   {
-    ComponentImport componentImport{"","",0};
+    ComponentImport componentImport;
     std::string line;
     fileStream >> line;
 
