@@ -27,6 +27,7 @@ bool Layout::pingComponents()
 {
   for (size_t i = 0; i < vModule.size(); i++)
   {
+    std::cout << "\nModule " << i << '\n';
     vModule.at(i)->pingComponents();
   }
   return 0;

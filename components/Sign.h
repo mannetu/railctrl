@@ -13,7 +13,9 @@ class Sign : public IComponent
 
   bool update(const BusMessage &msg) override;
   void ping() override;
+  int getStatus() override;
 };
+
 
 
 #endif

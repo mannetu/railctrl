@@ -7,9 +7,9 @@ Railctrl
 #include <stdexcept>
 #include "IBusInterface.h"
 #include "TestBusInterface.h"
-#include "BusMessage.h"
 #include "BusHandler.h"
 #include "Layout.h"
+#include "BusMessage.h"
 
 int main(int argc, char const *argv[])
 {
@@ -24,15 +24,14 @@ int main(int argc, char const *argv[])
     Layout *layout = new Layout(busHandler);
     layout->setup();
 
-    busHandler->listComponents();
+    layout->pingComponents();
 
-    //layout->pingComponents();
-
+    //busHandler->listComponents();
 
     // Only for testing. Later put as method into IbusInterface.
     // Will be called once physical message arrives
-    //BusMessage msg;
-    //busInterface->notifyBusHandler(msg);
+    BusMessage msg;
+    busInterface->notifyBusHandler(msg);
 
   }
 

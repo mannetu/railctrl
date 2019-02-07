@@ -19,12 +19,14 @@ class IComponent
   int getAddress() {return m_address;}
   virtual bool update(const BusMessage &msg) = 0;
   virtual void ping() = 0;
+  virtual int getStatus() = 0;
   virtual void toggle() {};
 
   protected:
   BusHandler*  m_busHandler;
   std::string  m_label;
-  int          m_address;
+  int          m_address = 0;
+  int          m_status = 0;
   bool         sendMessage(BusMessage msg) {m_busHandler->sendMessage(msg); return 0;}
 };
 

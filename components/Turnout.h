@@ -15,6 +15,7 @@ class Turnout : public IComponent
   bool update(const BusMessage &msg) override;
   void ping() override;
   void toggle() override;
+  int getStatus() override;
 };
 
 #endif
