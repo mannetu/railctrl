@@ -25,25 +25,23 @@ bool Module::load(std::string configFile)
 
   for (size_t i = 0; i < vComponents.size(); i++)
   {
+    newComponent = nullptr;
     newComponent = componentFactory.getComponent(
       vComponents.at(i).type,
       vComponents.at(i).label,
       vComponents.at(i).address);
 
+    if (!newComponent) throw std::runtime_error("Module::load\n");
     newComponent->setBusHandler(m_busHandler);
-    turnoutsVector.push_back(newComponent);
     m_busHandler->registerComponent(newComponent);
+    vModuleComponents.push_back(newComponent);
   }
   return 0;
 }
 
 bool Module::pingComponents()
 {
-  for (size_t i = 0; i < turnoutsVector.size(); i++)
-    turnoutsVector.at(i)->ping();
-
-  for (size_t i = 0; i < signsVector.size(); i++)
-    signsVector.at(i)->ping();
-
+  for (size_t i = 0; i < vModuleComponents.size(); i++)
+    vModuleComponents.at(i)->ping();
   return 0;
 }

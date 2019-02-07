@@ -12,8 +12,7 @@ class Module
 private:
   BusHandler *m_busHandler;
 
-  std::vector<IComponent*> turnoutsVector;
-  std::vector<IComponent*> signsVector;
+  std::vector<IComponent*> vModuleComponents;
 
 public:
   Module(BusHandler* busHandler);
